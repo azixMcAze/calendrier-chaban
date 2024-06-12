@@ -4,6 +4,10 @@ import icalendar
 import json
 import pytz
 import sys
+import urllib.request
+
+
+API_URL = 'https://opendata.bordeaux-metropole.fr/api/explore/v2.1/catalog/datasets/previsions_pont_chaban/records?limit=20'
 
 TZ_NAME = 'Europe/Paris'
 TZ_DST = True
@@ -43,15 +47,27 @@ def create_cal_from_json(json_data : dict):
     return cal
 
 
-def main(json_filename: str, ical_filename: str):
-    with open(json_filename, 'r') as fs:
-        json_data = json.load(fs)
+def get_json_from_file(filename: str):
+    with open(filename, 'r') as fs:
+        return json.load(fs)
 
-    cal = create_cal_from_json(json_data)
 
-    with open(ical_filename, 'wb') as fs:
+def get_json_from_url(url: str):
+    request = urllib.request.urlopen(url)
+    contents = request.read()
+    return json.loads(contents)
+
+
+def write_cal_to_file(cal, filename: str):
+    with open(filename, 'wb') as fs:
         fs.write(cal.to_ical())
 
 
+def main(ical_filename: str):
+    json_data = get_json_from_url(API_URL)
+    cal = create_cal_from_json(json_data)
+    write_cal_to_file(cal, ical_filename)
+
+
 if __name__ == '__main__':
-    main(sys.argv[1], sys.argv[2])
+    main(sys.argv[1])
