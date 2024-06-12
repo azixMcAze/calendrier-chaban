@@ -1,9 +1,9 @@
 from collections import namedtuple
+from flask import Flask
 import datetime
 import icalendar
 import json
 import pytz
-import sys
 import urllib.request
 
 
@@ -12,9 +12,10 @@ API_URL = 'https://opendata.bordeaux-metropole.fr/api/explore/v2.1/catalog/datas
 TZ_NAME = 'Europe/Paris'
 TZ_DST = True
 
-tz = pytz.timezone(TZ_NAME)
-
 ClosureItem = namedtuple('ClosureItem', ['name', 'closingTime', 'reopeningTime'])
+
+tz = pytz.timezone(TZ_NAME)
+app = Flask(__name__) 
 
 
 def parse_boat_closure(json_item: dict):
@@ -58,16 +59,12 @@ def get_json_from_url(url: str):
     return json.loads(contents)
 
 
-def write_cal_to_file(cal, filename: str):
-    with open(filename, 'wb') as fs:
-        fs.write(cal.to_ical())
-
-
-def main(ical_filename: str):
+@app.route('/')
+def calendar():
     json_data = get_json_from_url(API_URL)
     cal = create_cal_from_json(json_data)
-    write_cal_to_file(cal, ical_filename)
+    return cal.to_ical()
 
 
 if __name__ == '__main__':
-    main(sys.argv[1])
+    app.run(debug=True)
