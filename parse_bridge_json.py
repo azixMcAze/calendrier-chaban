@@ -1,4 +1,4 @@
-from chaban import get_json_from_url, parse_json_data, ClosureItem
+from chaban import get_json_from_url, parse_json_data
 from flask import Flask
 from calendar_data import create_cal_from_json
 
