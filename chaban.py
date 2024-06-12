@@ -24,8 +24,12 @@ def parse_boat_closure(json_item: dict):
     return ClosureItem(name=json_item['bateau'], closingTime=closing_dt, reopeningTime=reopening_dt)
 
 
-def get_json_from_url(url: str):
-    request = urllib.request.urlopen(url)
+def parse_json_data(json_data: dict):
+    return (parse_boat_closure(json_item) for json_item in json_data['results'])
+
+
+def get_json_from_url():
+    request = urllib.request.urlopen(API_URL)
     contents = request.read()
     return json.loads(contents)
 
