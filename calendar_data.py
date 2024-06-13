@@ -2,6 +2,9 @@ from chaban import ClosureItem
 import icalendar
 
 
+CAL_MIME_TYPE = 'text/calendar'
+
+
 def create_calendar_item(closure_item: ClosureItem):
     cal_event = icalendar.Event()
     cal_event.add('summary', closure_item.name)
