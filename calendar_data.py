@@ -1,12 +1,18 @@
+import datetime
 import icalendar
+import re
+
 
 CAL_MIME_TYPE = 'text/calendar'
 UID_DOMAIN = 'chaban-calendar'
 EVENT_SUMMARY_TEXT = 'Pont Chaban-Delmas fermé à la circulation'
 EVENT_DESCRIPTION_FORMAT = 'Bateau : {name}'
 
+
 def compute_uid(closure_item):
-    return f'{closure_item.closingTime.isoformat()}_{closure_item.name}@{UID_DOMAIN}'
+    sanitized_name = re.sub(r'\W+|^(?=\d)','_', closure_item.name)
+    time_utc = closure_item.closingTime.astimezone(datetime.timezone.utc)
+    return f'{time_utc:%Y%m%dT%H%M%S}_{sanitized_name}@{UID_DOMAIN}'
 
 
 def create_calendar_item(closure_item):
