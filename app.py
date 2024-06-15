@@ -7,7 +7,7 @@ import urllib.request
 
 app = Flask(__name__) 
 
-@app.route('/')
+@app.route('/chaban.ics')
 def calendar():
     request = urllib.request.urlopen(bridge_json_utils.API_URL)
     json_text = request.read()
