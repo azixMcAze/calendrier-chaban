@@ -1,18 +1,18 @@
-from chaban import get_json_from_url, parse_json_data
-from flask import Flask, Response
-from calendar_data import create_cal_from_json, CAL_MIME_TYPE
+import sys
+from chaban import get_json_from_file, parse_json_data
+from calendar_data import create_cal_from_json, write_cal_to_file
 
 
-app = Flask(__name__) 
-
-@app.route('/')
-def calendar():
-    json_data = get_json_from_url()
+def main(json_filename: str, ical_filename: str):
+    json_data = get_json_from_file(json_filename)
     closure_items_list = parse_json_data(json_data)
     cal = create_cal_from_json(closure_items_list)
-    cal_text = cal.to_ical()
-    return Response(cal_text, CAL_MIME_TYPE)
+    write_cal_to_file(cal, ical_filename)
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    if sys.argv[1] == '--web':
+        from app import app
+        app.run(debug=True)
+    else:
+        main(sys.argv[1], sys.argv[2])
