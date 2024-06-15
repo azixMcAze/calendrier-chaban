@@ -2,6 +2,7 @@ import datetime
 import icalendar
 import re
 from bridge_json_utils import BridgeEvent
+from typing import Iterable
 
 
 CAL_MIME_TYPE = 'text/calendar'
@@ -24,7 +25,7 @@ def create_calendar_item(closure_item: BridgeEvent) -> icalendar.Event:
     return cal_event
 
 
-def create_cal_from_json(closure_items_list: list[BridgeEvent]) -> icalendar.Calendar:
+def create_cal_from_json(closure_items_list: Iterable[BridgeEvent]) -> icalendar.Calendar:
     cal = icalendar.Calendar()
     
     for closure_item in closure_items_list:

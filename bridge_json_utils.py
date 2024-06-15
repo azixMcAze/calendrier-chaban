@@ -27,4 +27,4 @@ def parse_bridge_json_item(json_item: dict) -> BridgeEvent:
 
 
 def parse_bridge_json_data(json_data: dict) -> list[BridgeEvent]:
-    return (parse_bridge_json_item(json_item) for json_item in json_data['results'])
+    return [parse_bridge_json_item(json_item) for json_item in json_data['results']]
