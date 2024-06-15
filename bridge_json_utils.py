@@ -1,7 +1,6 @@
 from collections import namedtuple
 import datetime
 import pytz
-import urllib.request
 
 
 API_URL = 'https://opendata.bordeaux-metropole.fr/api/explore/v2.1/catalog/datasets/previsions_pont_chaban/records?limit=100'
@@ -25,8 +24,3 @@ def parse_bridge_json_item(json_item: dict):
 
 def parse_bridge_json_data(json_data: dict):
     return (parse_bridge_json_item(json_item) for json_item in json_data['results'])
-
-
-def get_json_from_url():
-    request = urllib.request.urlopen(API_URL)
-    return request.read()
