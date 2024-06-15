@@ -1,4 +1,4 @@
-from collections import namedtuple
+from dataclasses import dataclass
 import datetime
 import pytz
 
@@ -7,9 +7,13 @@ API_URL = 'https://opendata.bordeaux-metropole.fr/api/explore/v2.1/catalog/datas
 TZ_NAME = 'Europe/Paris'
 TZ_DST = True
 
-BridgeEvent = namedtuple('ClosureItem', ['name', 'closingTime', 'reopeningTime'])
-
 tz = pytz.timezone(TZ_NAME)
+
+@dataclass
+class BridgeEvent:
+    name: str
+    closingTime: datetime.datetime
+    reopeningTime: datetime.datetime
 
 
 def parse_bridge_json_item(json_item: dict) -> BridgeEvent:
