@@ -1,6 +1,5 @@
 from collections import namedtuple
 import datetime
-import json
 import pytz
 import urllib.request
 
@@ -30,10 +29,4 @@ def parse_json_data(json_data: dict):
 
 def get_json_from_url():
     request = urllib.request.urlopen(API_URL)
-    contents = request.read()
-    return json.loads(contents)
-
-
-def get_json_from_file(filename: str):
-    with open(filename, 'r') as fs:
-        return json.load(fs)
+    return request.read()

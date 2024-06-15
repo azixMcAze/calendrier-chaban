@@ -31,8 +31,3 @@ def create_cal_from_json(closure_items_list):
         cal.add_component(cal_event)
 
     return cal
-
-
-def write_cal_to_file(cal, filename: str):
-    with open(filename, 'wb') as fs:
-        fs.write(cal.to_ical())

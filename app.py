@@ -1,14 +1,13 @@
-from chaban import get_json_from_url, parse_json_data
+from calendar_data import CAL_MIME_TYPE
+from chaban import get_json_from_url
 from flask import Flask, Response
-from calendar_data import create_cal_from_json, CAL_MIME_TYPE
+import chaban_calendar
 
 
 app = Flask(__name__) 
 
 @app.route('/')
 def calendar():
-    json_data = get_json_from_url()
-    closure_items_list = parse_json_data(json_data)
-    cal = create_cal_from_json(closure_items_list)
-    cal_text = cal.to_ical()
+    json_text = get_json_from_url()
+    cal_text = chaban_calendar.convert_json_to_cal(json_text)
     return Response(cal_text, CAL_MIME_TYPE)
