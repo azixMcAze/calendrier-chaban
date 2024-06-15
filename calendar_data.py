@@ -2,7 +2,8 @@ import icalendar
 
 CAL_MIME_TYPE = 'text/calendar'
 UID_DOMAIN = 'chaban-calendar'
-
+EVENT_SUMMARY_TEXT = 'Pont Chaban-Delmas fermé à la circulation'
+EVENT_DESCRIPTION_FORMAT = 'Bateau : {name}'
 
 def compute_uid(closure_item):
     return f'{closure_item.closingTime.isoformat()}_{closure_item.name}@{UID_DOMAIN}'
@@ -10,10 +11,11 @@ def compute_uid(closure_item):
 
 def create_calendar_item(closure_item):
     cal_event = icalendar.Event()
-    cal_event.add('summary', closure_item.name + ' 3')
+    cal_event.add('summary', EVENT_SUMMARY_TEXT)
     cal_event.add('dtstart', closure_item.closingTime)
     cal_event.add('dtend', closure_item.reopeningTime)
     cal_event.add('uid', compute_uid(closure_item))
+    cal_event.add('description', closure_item.name)
 
     return cal_event
 
