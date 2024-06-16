@@ -17,7 +17,7 @@ class BridgeEvent:
 
 
 def combine_date_and_times(common_date: date, start_time: time, end_time: time):
-    if start_time < end_time:
+    if start_time <= end_time:
         day_offset = 0
     else:
         day_offset = 1
