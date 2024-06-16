@@ -1,4 +1,4 @@
-from datetime import time
+from datetime import datetime
 from flask import Flask, Response, request
 import calendar_utils
 import chaban_calendar
@@ -40,7 +40,7 @@ def parse_time(time_str: str):
         time_str = '0' + time_str
     assert(len(time_str) == 4)
 
-    return time.fromisoformat(time_str)
+    return datetime.strptime(time_str, '%H%M').time()
 
 
 def parse_time_range(time_range_str: str):
