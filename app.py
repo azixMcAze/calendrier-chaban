@@ -21,10 +21,10 @@ def calendar():
 
 
 def parse_day_filter(days: str):
-    day_filter = set()
+    day_filter = [False] * len(DAYS_LETTERS)
+
     for day_num, day_letter in enumerate(DAYS_LETTERS):
         if day_letter in days:
-            day_filter.add(day_num)
+            day_filter[day_num] = True
 
     return day_filter
-

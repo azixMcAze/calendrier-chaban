@@ -5,13 +5,18 @@ from datetimerange import DateTimeRange
 from typing import Optional, Iterable
 import json
 
-DayFilterType = set[int]
+DayFilterType = list[bool]
 TimeRangeType = tuple[time, time]
 TimeFilterType = list[TimeRangeType]
 
+DAYS_COUNT = 7
+
 
 def day_filter_predicate(bridge_event: BridgeEvent, day_filter: Optional[DayFilterType]):
-    return day_filter is None or bridge_event.closingTime.weekday() in day_filter
+    if day_filter is None:
+        return True
+    else:
+        return day_filter[bridge_event.closingTime.weekday()]
 
 
 def convert_hour_filter_to_range(time_couple: TimeRangeType, event_date: date):
@@ -33,6 +38,7 @@ def hours_filter_predicate(bridge_event: BridgeEvent, time_filter: Optional[Time
 
 def filter_by_day(bridge_data: Iterable[BridgeEvent], day_filter: Optional[DayFilterType], time_filter: Optional[TimeFilterType]):
     if day_filter is not None or time_filter is not None:
+        assert(day_filter is None or len(day_filter) == DAYS_COUNT)
         return (bridge_event
                     for bridge_event in bridge_data
                     if day_filter_predicate(bridge_event, day_filter) and hours_filter_predicate(bridge_event, time_filter))
