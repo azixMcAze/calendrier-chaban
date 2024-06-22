@@ -33,4 +33,5 @@ if __name__ == '__main__':
     elif action == 'download':
         download(sys.argv[2])
     else:
+        print('unknown command', action)
         exit(1)
