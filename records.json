@@ -1,5 +1,5 @@
 {
-    "total_count": 90,
+    "total_count": 91,
     "results": [
         {
             "bateau": "MAINTENANCE",
@@ -98,6 +98,14 @@
             "fermeture_totale": "oui"
         },
         {
+            "bateau": "MV DEUTSCHLAND/BRDEAUX FETE LE FLEUVE",
+            "date_passage": "2024-07-01",
+            "fermeture_a_la_circulation": "14:34",
+            "re_ouverture_a_la_circulation": "16:42",
+            "type_de_fermeture": "Totale",
+            "fermeture_totale": "oui"
+        },
+        {
             "bateau": "SEABOUR SOJOURN",
             "date_passage": "2024-07-05",
             "fermeture_a_la_circulation": "19:34",
@@ -110,22 +118,6 @@
             "date_passage": "2024-07-22",
             "fermeture_a_la_circulation": "08:04",
             "re_ouverture_a_la_circulation": "09:27",
-            "type_de_fermeture": "Totale",
-            "fermeture_totale": "oui"
-        },
-        {
-            "bateau": "CRYSTAL SYMPHONY / SEVEN SEAS VOYAGER",
-            "date_passage": "2024-07-24",
-            "fermeture_a_la_circulation": "08:34",
-            "re_ouverture_a_la_circulation": "12:57",
-            "type_de_fermeture": "Totale",
-            "fermeture_totale": "oui"
-        },
-        {
-            "bateau": "EUROPA 2",
-            "date_passage": "2024-08-06",
-            "fermeture_a_la_circulation": "19:04",
-            "re_ouverture_a_la_circulation": "20:27",
             "type_de_fermeture": "Totale",
             "fermeture_totale": "oui"
         },
@@ -348,7 +340,7 @@
         {
             "bateau": "MARINA/NAUTICA",
             "date_passage": "2024-06-18",
-            "fermeture_a_la_circulation": "16:04",
+            "fermeture_a_la_circulation": "16:34",
             "re_ouverture_a_la_circulation": "18:17",
             "type_de_fermeture": "Totale",
             "fermeture_totale": "oui"
@@ -386,6 +378,22 @@
             "fermeture_totale": "oui"
         },
         {
+            "bateau": "MV DEUTSCHLAND",
+            "date_passage": "2024-07-02",
+            "fermeture_a_la_circulation": "14:19",
+            "re_ouverture_a_la_circulation": "15:42",
+            "type_de_fermeture": "Totale",
+            "fermeture_totale": "oui"
+        },
+        {
+            "bateau": "SEVEN SEAS VOYAGER",
+            "date_passage": "2024-07-26",
+            "fermeture_a_la_circulation": "11:04",
+            "re_ouverture_a_la_circulation": "12:27",
+            "type_de_fermeture": "Totale",
+            "fermeture_totale": "oui"
+        },
+        {
             "bateau": "SEVEN SEAS VOYAGER",
             "date_passage": "2024-07-28",
             "fermeture_a_la_circulation": "13:04",
@@ -394,18 +402,18 @@
             "fermeture_totale": "oui"
         },
         {
-            "bateau": "SEVEN SEAS MARINER",
-            "date_passage": "2024-08-16",
-            "fermeture_a_la_circulation": "03:49",
-            "re_ouverture_a_la_circulation": "04:57",
+            "bateau": "EUROPA 2",
+            "date_passage": "2024-08-06",
+            "fermeture_a_la_circulation": "20:04",
+            "re_ouverture_a_la_circulation": "21:27",
             "type_de_fermeture": "Totale",
             "fermeture_totale": "oui"
         },
         {
             "bateau": "SEVEN SEAS MARINER",
             "date_passage": "2024-08-17",
-            "fermeture_a_la_circulation": "16:34",
-            "re_ouverture_a_la_circulation": "17:57",
+            "fermeture_a_la_circulation": "16:49",
+            "re_ouverture_a_la_circulation": "18:12",
             "type_de_fermeture": "Totale",
             "fermeture_totale": "oui"
         },
@@ -578,22 +586,6 @@
             "fermeture_totale": "oui"
         },
         {
-            "bateau": "WORLD ODYSSEY/BRDEAUX FETE LE FLEUVE",
-            "date_passage": "2024-07-01",
-            "fermeture_a_la_circulation": "14:34",
-            "re_ouverture_a_la_circulation": "16:42",
-            "type_de_fermeture": "Totale",
-            "fermeture_totale": "oui"
-        },
-        {
-            "bateau": "WORLD ODYSSEY",
-            "date_passage": "2024-07-02",
-            "fermeture_a_la_circulation": "14:19",
-            "re_ouverture_a_la_circulation": "15:42",
-            "type_de_fermeture": "Totale",
-            "fermeture_totale": "oui"
-        },
-        {
             "bateau": "SEABOUR SOJOURN",
             "date_passage": "2024-07-04",
             "fermeture_a_la_circulation": "06:19",
@@ -602,10 +594,26 @@
             "fermeture_totale": "oui"
         },
         {
+            "bateau": "CRYSTAL SYMPHONY",
+            "date_passage": "2024-07-24",
+            "fermeture_a_la_circulation": "08:34",
+            "re_ouverture_a_la_circulation": "09:57",
+            "type_de_fermeture": "Totale",
+            "fermeture_totale": "oui"
+        },
+        {
             "bateau": "EUROPA 2",
             "date_passage": "2024-08-05",
             "fermeture_a_la_circulation": "08:19",
-            "re_ouverture_a_la_circulation": "09:27",
+            "re_ouverture_a_la_circulation": "09:42",
+            "type_de_fermeture": "Totale",
+            "fermeture_totale": "oui"
+        },
+        {
+            "bateau": "SEVEN SEAS MARINER",
+            "date_passage": "2024-08-16",
+            "fermeture_a_la_circulation": "04:19",
+            "re_ouverture_a_la_circulation": "05:42",
             "type_de_fermeture": "Totale",
             "fermeture_totale": "oui"
         },
