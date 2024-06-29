@@ -50,6 +50,7 @@ def convert_json_to_cal(json_text: str, day_filter: Optional[DayFilterType] = No
     json_data = json.loads(json_text)
     bridge_data = parse_bridge_json_data(json_data)
     bridge_data = filter_by_day(bridge_data, day_filter, time_filter)
+    bridge_data = sorted(bridge_data, key=lambda item: item.closingTime)
     cal = create_cal_from_json(bridge_data)
 
     return cal.to_ical()
