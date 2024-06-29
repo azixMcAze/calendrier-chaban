@@ -7,7 +7,7 @@ from typing import Iterable
 
 CAL_MIME_TYPE = 'text/calendar'
 UID_DOMAIN = 'chaban-calendar'
-EVENT_SUMMARY_FORMAT = 'Pont Chaban-Delmas fermé à la circulation ({name})'
+EVENT_SUMMARY_FORMAT = 'Fermeture du pont Chaban-Delmas ({name})'
 
 def compute_uid(closure_item):
     sanitized_name = re.sub(r'\W+|^(?=\d)','_', closure_item.name)
