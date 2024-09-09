@@ -1,7 +1,7 @@
 from datetime import datetime
 from flask import Flask, Response, request
 import calendar_utils
-import chaban_calendar
+import event_utils
 
 
 DAYS_LETTERS = ['L', 'Ma', 'Me', 'J', 'V', 'S', 'D']
@@ -20,7 +20,7 @@ def calendar():
     with open(JSON_FILENAME, 'r') as fs:
         json_text = fs.read()
 
-    cal_text = chaban_calendar.convert_json_to_cal(json_text, day_filter=day_filter, time_filter=time_filter)
+    cal_text = event_utils.convert_json_to_cal(json_text, day_filter=day_filter, time_filter=time_filter)
 
     return Response(cal_text, mimetype=calendar_utils.CAL_MIME_TYPE)
 

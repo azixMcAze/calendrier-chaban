@@ -1,35 +1,38 @@
 import datetime
-import icalendar
 import re
-from bridge_json_utils import BridgeEvent
 from typing import Iterable
+
+import icalendar
+
+from bridge_json_utils import BridgeEvent
 
 
 CAL_MIME_TYPE = 'text/calendar'
 UID_DOMAIN = 'chaban-calendar'
 EVENT_SUMMARY_FORMAT = 'Fermeture du pont Chaban-Delmas ({name})'
 
-def compute_uid(closure_item):
-    sanitized_name = re.sub(r'\W+|^(?=\d)','_', closure_item.name)
-    time_utc = closure_item.closingTime.astimezone(datetime.timezone.utc)
+
+def compute_uid(bridge_event: BridgeEvent):
+    sanitized_name = re.sub(r'\W+|^(?=\d)','_', bridge_event.name)
+    time_utc = bridge_event.start_time.astimezone(datetime.timezone.utc)
     return f'{time_utc:%Y%m%dT%H%M%S}_{sanitized_name}@{UID_DOMAIN}'
 
 
-def create_calendar_item(closure_item: BridgeEvent) -> icalendar.Event:
-    cal_event = icalendar.Event()
-    cal_event.add('summary', EVENT_SUMMARY_FORMAT.format(name=closure_item.name))
-    cal_event.add('dtstart', closure_item.closingTime)
-    cal_event.add('dtend', closure_item.reopeningTime)
-    cal_event.add('uid', compute_uid(closure_item))
+def create_calendar_item(bridge_event: BridgeEvent) -> icalendar.Event:
+    ical_event = icalendar.Event()
+    ical_event.add('summary', EVENT_SUMMARY_FORMAT.format(name=bridge_event.name))
+    ical_event.add('dtstart', bridge_event.start_time)
+    ical_event.add('dtend', bridge_event.duration)
+    ical_event.add('uid', compute_uid(bridge_event))
 
-    return cal_event
+    return ical_event
 
 
-def create_cal_from_json(closure_items_list: Iterable[BridgeEvent]) -> icalendar.Calendar:
+def create_cal_from_json(bridge_event_list: Iterable[BridgeEvent]) -> icalendar.Calendar:
     cal = icalendar.Calendar()
     
-    for closure_item in closure_items_list:
-        cal_event = create_calendar_item(closure_item)
+    for bridge_event in bridge_event_list:
+        cal_event = create_calendar_item(bridge_event)
         cal.add_component(cal_event)
 
     return cal

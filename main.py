@@ -1,22 +1,24 @@
 import sys
 
-def convert(json_filename: str, ical_filename: str):
-    import chaban_calendar
+from event_utils import convert_json_to_cal
 
+
+def convert(json_filename: str, ical_filename: str):
     with open(json_filename, 'r') as fs:
         json_text = fs.read()
 
-    cal_text = chaban_calendar.convert_json_to_cal(json_text)
+    cal_text = convert_json_to_cal(json_text)
 
     with open(ical_filename, 'wb') as fs:
         fs.write(cal_text)
 
 
 def download(json_filename: str):
-    import bridge_json_utils
     import urllib.request
 
-    request = urllib.request.urlopen(bridge_json_utils.API_URL)
+    API_URL = 'https://opendata.bordeaux-metropole.fr/api/explore/v2.1/catalog/datasets/previsions_pont_chaban/records?limit=100'
+
+    request = urllib.request.urlopen(API_URL)
     json_text = request.read().decode(request.headers.get_content_charset())
 
     with open(json_filename, 'w') as fs:
