@@ -55,3 +55,7 @@ def parse_time_filter(time_filter_str: str):
         parse_time_range(time_range_str)
         for time_range_str in time_filter_str.split(',')
     ]
+
+
+if __name__ == '__main__':
+    app.run(debug=True)

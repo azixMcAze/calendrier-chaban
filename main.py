@@ -1,6 +1,5 @@
 import sys
 
-
 def download(json_filename: str):
     import urllib.request
 
@@ -15,10 +14,7 @@ def download(json_filename: str):
 
 if __name__ == '__main__':
     action = sys.argv[1]
-    if action == 'web':
-        from app import app
-        app.run(debug=True)
-    elif action == 'download':
+    if action == 'download':
         download(sys.argv[2])
     else:
         print('unknown command', action)
