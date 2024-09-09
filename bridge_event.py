@@ -12,7 +12,7 @@ class BridgeEvent:
     start_time: datetime
     duration: timedelta
 
-DayFilterType = list[bool]
+DayFilterType = tuple[bool, ...]
 TimeRangeType = tuple[time, time]
 TimeFilterType = list[TimeRangeType]
 
@@ -40,6 +40,7 @@ def day_filter_predicate(bridge_event: BridgeEvent, day_filter: Optional[DayFilt
     if day_filter is None:
         return True
     else:
+        assert len(day_filter) == DAYS_COUNT
         return day_filter[bridge_event.start_time.weekday()]
 
 

@@ -1,7 +1,7 @@
 from datetime import datetime
 import json
 from flask import Flask, Response, request
-from bridge_event import filter_by_day
+from bridge_event import DayFilterType, filter_by_day
 from bridge_json_utils import parse_bridge_json_data
 from calendar_utils import CAL_MIME_TYPE, create_cal_from_events
 
@@ -28,14 +28,8 @@ def calendar():
     return Response(cal_text, mimetype=CAL_MIME_TYPE)
 
 
-def parse_day_filter(days: str):
-    day_filter = [False] * len(DAYS_LETTERS)
-
-    for day_num, day_letter in enumerate(DAYS_LETTERS):
-        if day_letter in days:
-            day_filter[day_num] = True
-
-    return day_filter
+def parse_day_filter(days: str) -> DayFilterType:
+    return tuple(day_letter in days for day_letter in DAYS_LETTERS)
 
 
 def parse_time(time_str: str):
