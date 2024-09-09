@@ -1,8 +1,8 @@
 from datetime import datetime
 import json
 from flask import Flask, Response, request
-from bridge_event import DayFilterType, filter_by_day
-from bridge_json_utils import parse_bridge_json_data
+from bridge_event import DayFilterType, filter_bridge_events
+from bridge_json_utils import parse_bridge_events
 from calendar_utils import CAL_MIME_TYPE, create_cal_from_events
 
 DAYS_LETTERS = ['L', 'Ma', 'Me', 'J', 'V', 'S', 'D']
@@ -21,8 +21,8 @@ def calendar():
     with open(JSON_FILENAME, 'r') as fs:
         json_data = json.load(fs)
 
-    bridge_data = parse_bridge_json_data(json_data)
-    bridge_data = filter_by_day(bridge_data, day_filter, time_filter)
+    bridge_data = parse_bridge_events(json_data)
+    bridge_data = filter_bridge_events(bridge_data, day_filter, time_filter)
     cal_text = create_cal_from_events(bridge_data)
 
     return Response(cal_text, mimetype=CAL_MIME_TYPE)

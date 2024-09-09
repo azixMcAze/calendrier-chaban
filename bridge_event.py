@@ -61,7 +61,7 @@ def hours_filter_predicate(bridge_event: BridgeEvent, time_filter: Optional[Time
     return any(time_filter_range.is_intersection(bridge_time_range) for time_filter_range in time_filter_ranges)
 
 
-def filter_by_day(bridge_data: Iterable[BridgeEvent], day_filter: Optional[DayFilterType], time_filter: Optional[TimeFilterType]):
+def filter_bridge_events(bridge_data: Iterable[BridgeEvent], day_filter: Optional[DayFilterType], time_filter: Optional[TimeFilterType]):
     if day_filter is not None or time_filter is not None:
         assert(day_filter is None or len(day_filter) == DAYS_COUNT)
         return (bridge_event
