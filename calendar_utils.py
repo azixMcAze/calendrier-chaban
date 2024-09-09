@@ -28,11 +28,11 @@ def create_calendar_item(bridge_event: BridgeEvent) -> icalendar.Event:
     return ical_event
 
 
-def create_cal_from_json(bridge_event_list: Iterable[BridgeEvent]) -> icalendar.Calendar:
+def create_cal_from_events(bridge_event_list: Iterable[BridgeEvent]) -> bytes:
     cal = icalendar.Calendar()
     
     for bridge_event in bridge_event_list:
         cal_event = create_calendar_item(bridge_event)
         cal.add_component(cal_event)
 
-    return cal
+    return cal.to_ical()

@@ -1,18 +1,39 @@
-from datetime import date, time
-import json
+from dataclasses import dataclass
+from datetime import date, datetime, time, timedelta
 from typing import Iterable, Optional
 
 from datetimerange import DateTimeRange
+import pytz
 
-from calendar_utils import create_cal_from_json
-from bridge_json_utils import BridgeEvent, combine_date_and_times, parse_bridge_json_data
 
+@dataclass
+class BridgeEvent:
+    name: str
+    start_time: datetime
+    duration: timedelta
 
 DayFilterType = list[bool]
 TimeRangeType = tuple[time, time]
 TimeFilterType = list[TimeRangeType]
 
 DAYS_COUNT = 7
+TZ_NAME = 'Europe/Paris'
+TZ_DST = True
+
+tz = pytz.timezone(TZ_NAME)
+
+
+def combine_date_and_times(common_date: date, start_time: time, end_time: time):
+    if start_time <= end_time:
+        day_offset = 0
+    else:
+        day_offset = 1
+
+    start_dt = tz.localize(datetime.combine(common_date, start_time))
+    end_dt = tz.localize(datetime.combine(common_date + timedelta(days=day_offset), end_time))
+    duration = end_dt - start_dt
+
+    return (start_dt, duration)
 
 
 def day_filter_predicate(bridge_event: BridgeEvent, day_filter: Optional[DayFilterType]):
@@ -47,12 +68,3 @@ def filter_by_day(bridge_data: Iterable[BridgeEvent], day_filter: Optional[DayFi
                     if day_filter_predicate(bridge_event, day_filter) and hours_filter_predicate(bridge_event, time_filter))
     else:
         return bridge_data
-
-def convert_json_to_cal(json_text: str, day_filter: Optional[DayFilterType] = None, time_filter: Optional[TimeFilterType] = None) -> bytes:
-    json_data = json.loads(json_text)
-    bridge_data = parse_bridge_json_data(json_data)
-    bridge_data = filter_by_day(bridge_data, day_filter, time_filter)
-    bridge_data = sorted(bridge_data, key=lambda item: item.start_time)
-    cal = create_cal_from_json(bridge_data)
-
-    return cal.to_ical()
