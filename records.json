@@ -1,5 +1,5 @@
 {
-    "total_count": 84,
+    "total_count": 85,
     "results": [
         {
             "bateau": "MAINTENANCE",
@@ -450,14 +450,6 @@
             "fermeture_totale": "oui"
         },
         {
-            "bateau": "MARINA",
-            "date_passage": "2024-09-16",
-            "fermeture_a_la_circulation": "05:49",
-            "re_ouverture_a_la_circulation": "07:12",
-            "type_de_fermeture": "Totale",
-            "fermeture_totale": "oui"
-        },
-        {
             "bateau": "AMADEA",
             "date_passage": "2024-09-19",
             "fermeture_a_la_circulation": "19:34",
@@ -474,7 +466,7 @@
             "fermeture_totale": "oui"
         },
         {
-            "bateau": "MARINA",
+            "bateau": "MARINA / IRIS",
             "date_passage": "2024-09-25",
             "fermeture_a_la_circulation": "13:04",
             "re_ouverture_a_la_circulation": "14:27",
@@ -628,8 +620,16 @@
         {
             "bateau": "AZAMARA ONWARD",
             "date_passage": "2024-09-12",
-            "fermeture_a_la_circulation": "13:04",
-            "re_ouverture_a_la_circulation": "14:12",
+            "fermeture_a_la_circulation": "00:19",
+            "re_ouverture_a_la_circulation": "01:27",
+            "type_de_fermeture": "Totale",
+            "fermeture_totale": "oui"
+        },
+        {
+            "bateau": "MARINA",
+            "date_passage": "2024-09-15",
+            "fermeture_a_la_circulation": "23:00",
+            "re_ouverture_a_la_circulation": "07:12",
             "type_de_fermeture": "Totale",
             "fermeture_totale": "oui"
         },
@@ -638,6 +638,14 @@
             "date_passage": "2024-09-17",
             "fermeture_a_la_circulation": "18:04",
             "re_ouverture_a_la_circulation": "19:27",
+            "type_de_fermeture": "Totale",
+            "fermeture_totale": "oui"
+        },
+        {
+            "bateau": "IRIS",
+            "date_passage": "2024-09-26",
+            "fermeture_a_la_circulation": "12:04",
+            "re_ouverture_a_la_circulation": "13:27",
             "type_de_fermeture": "Totale",
             "fermeture_totale": "oui"
         },
