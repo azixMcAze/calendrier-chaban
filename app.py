@@ -7,8 +7,21 @@ from calendar_utils import CAL_MIME_TYPE, create_cal_from_events
 
 DAYS_LETTERS = ['L', 'Ma', 'Me', 'J', 'V', 'S', 'D']
 JSON_FILENAME = 'records.json'
+API_URL = 'https://opendata.bordeaux-metropole.fr/api/explore/v2.1/catalog/datasets/previsions_pont_chaban/records?limit=100'
 
 app = Flask(__name__) 
+
+
+@app.cli.command("download")
+def download():
+    import urllib.request
+
+    request = urllib.request.urlopen(API_URL)
+    json_text = request.read().decode(request.headers.get_content_charset())
+
+    with open(JSON_FILENAME, 'w') as fs:
+        fs.write(json_text)
+
 
 @app.route('/chaban.ics')
 def calendar():
@@ -55,7 +68,3 @@ def parse_time_filter(time_filter_str: str):
         parse_time_range(time_range_str)
         for time_range_str in time_filter_str.split(',')
     ]
-
-
-if __name__ == '__main__':
-    app.run(debug=True)
