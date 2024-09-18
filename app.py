@@ -18,7 +18,7 @@ def download():
 
     request = urllib.request.urlopen(API_URL)
     json_text = request.read().decode(request.headers.get_content_charset())
-
+    json_text = json.dumps(json.loads(json_text), indent=4)
     with open(JSON_FILENAME, 'w') as fs:
         fs.write(json_text)
 
