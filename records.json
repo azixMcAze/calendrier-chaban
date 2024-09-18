@@ -1,5 +1,5 @@
 {
-    "total_count": 85,
+    "total_count": 88,
     "results": [
         {
             "bateau": "MAINTENANCE",
@@ -156,8 +156,8 @@
         {
             "bateau": "AMADEA",
             "date_passage": "2024-09-18",
-            "fermeture_a_la_circulation": "07:34",
-            "re_ouverture_a_la_circulation": "08:42",
+            "fermeture_a_la_circulation": "08:19",
+            "re_ouverture_a_la_circulation": "09:27",
             "type_de_fermeture": "Totale",
             "fermeture_totale": "oui"
         },
@@ -190,6 +190,22 @@
             "date_passage": "2024-10-08",
             "fermeture_a_la_circulation": "09:49",
             "re_ouverture_a_la_circulation": "11:12",
+            "type_de_fermeture": "Totale",
+            "fermeture_totale": "oui"
+        },
+        {
+            "bateau": "SEVEN SEAS SPLENDOR",
+            "date_passage": "2024-10-09",
+            "fermeture_a_la_circulation": "21:49",
+            "re_ouverture_a_la_circulation": "23:12",
+            "type_de_fermeture": "Totale",
+            "fermeture_totale": "oui"
+        },
+        {
+            "bateau": "CLUB NAUTIQUE CUBNEZAIS",
+            "date_passage": "2024-10-13",
+            "fermeture_a_la_circulation": "06:34",
+            "re_ouverture_a_la_circulation": "07:57",
             "type_de_fermeture": "Totale",
             "fermeture_totale": "oui"
         },
@@ -450,6 +466,14 @@
             "fermeture_totale": "oui"
         },
         {
+            "bateau": "MARINA",
+            "date_passage": "2024-09-16",
+            "fermeture_a_la_circulation": "05:49",
+            "re_ouverture_a_la_circulation": "07:12",
+            "type_de_fermeture": "Totale",
+            "fermeture_totale": "oui"
+        },
+        {
             "bateau": "AMADEA",
             "date_passage": "2024-09-19",
             "fermeture_a_la_circulation": "19:34",
@@ -466,7 +490,7 @@
             "fermeture_totale": "oui"
         },
         {
-            "bateau": "MARINA / IRIS",
+            "bateau": "MARINA/IRIS",
             "date_passage": "2024-09-25",
             "fermeture_a_la_circulation": "13:04",
             "re_ouverture_a_la_circulation": "14:27",
@@ -494,6 +518,14 @@
             "date_passage": "2024-10-09",
             "fermeture_a_la_circulation": "09:34",
             "re_ouverture_a_la_circulation": "10:42",
+            "type_de_fermeture": "Totale",
+            "fermeture_totale": "oui"
+        },
+        {
+            "bateau": "WORLD VOYAGER",
+            "date_passage": "2024-10-10",
+            "fermeture_a_la_circulation": "21:49",
+            "re_ouverture_a_la_circulation": "23:12",
             "type_de_fermeture": "Totale",
             "fermeture_totale": "oui"
         },
@@ -627,14 +659,6 @@
         },
         {
             "bateau": "MARINA",
-            "date_passage": "2024-09-15",
-            "fermeture_a_la_circulation": "23:00",
-            "re_ouverture_a_la_circulation": "07:12",
-            "type_de_fermeture": "Totale",
-            "fermeture_totale": "oui"
-        },
-        {
-            "bateau": "MARINA",
             "date_passage": "2024-09-17",
             "fermeture_a_la_circulation": "18:04",
             "re_ouverture_a_la_circulation": "19:27",
@@ -674,10 +698,10 @@
             "fermeture_totale": "oui"
         },
         {
-            "bateau": "SEVEN SEAS SPLENDOR / WORLD VOYAGER",
-            "date_passage": "2024-10-09",
-            "fermeture_a_la_circulation": "21:49",
-            "re_ouverture_a_la_circulation": "23:12",
+            "bateau": "CLUB NAUTIQUE CUBNEZAIS",
+            "date_passage": "2024-10-12",
+            "fermeture_a_la_circulation": "10:19",
+            "re_ouverture_a_la_circulation": "11:27",
             "type_de_fermeture": "Totale",
             "fermeture_totale": "oui"
         }
