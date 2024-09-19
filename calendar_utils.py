@@ -23,6 +23,7 @@ def create_calendar_item(bridge_event: BridgeEvent) -> icalendar.Event:
     ical_event.add('summary', EVENT_SUMMARY_FORMAT.format(name=bridge_event.name))
     ical_event.add('dtstart', bridge_event.start_time)
     ical_event.add('dtend', bridge_event.start_time + bridge_event.duration)
+    ical_event.add('dtstamp', datetime.datetime.now(datetime.timezone.utc))
     ical_event.add('uid', compute_uid(bridge_event))
 
     return ical_event
@@ -30,7 +31,9 @@ def create_calendar_item(bridge_event: BridgeEvent) -> icalendar.Event:
 
 def create_cal_from_events(bridge_event_list: Iterable[BridgeEvent]) -> bytes:
     cal = icalendar.Calendar()
-    
+    cal.add('prodid', '-//CALENDRIER CHABAN//NONSGML chaban-calendar//FR')
+    cal.add('version', '2.0')
+
     for bridge_event in bridge_event_list:
         cal_event = create_calendar_item(bridge_event)
         cal.add_component(cal_event)
