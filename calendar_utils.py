@@ -22,7 +22,7 @@ def create_calendar_item(bridge_event: BridgeEvent) -> icalendar.Event:
     ical_event = icalendar.Event()
     ical_event.add('summary', EVENT_SUMMARY_FORMAT.format(name=bridge_event.name))
     ical_event.add('dtstart', bridge_event.start_time)
-    ical_event.add('dtend', bridge_event.duration)
+    ical_event.add('dtend', bridge_event.start_time + bridge_event.duration)
     ical_event.add('uid', compute_uid(bridge_event))
 
     return ical_event
