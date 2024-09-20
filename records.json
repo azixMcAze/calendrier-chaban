@@ -498,6 +498,14 @@
             "fermeture_totale": "oui"
         },
         {
+            "bateau": "IRIS/ LE Fran\u00e7ais",
+            "date_passage": "2024-09-26",
+            "fermeture_a_la_circulation": "12:04",
+            "re_ouverture_a_la_circulation": "13:32",
+            "type_de_fermeture": "Totale",
+            "fermeture_totale": "oui"
+        },
+        {
             "bateau": "SILVER SPIRIT",
             "date_passage": "2024-09-28",
             "fermeture_a_la_circulation": "16:04",
@@ -510,6 +518,14 @@
             "date_passage": "2024-10-03",
             "fermeture_a_la_circulation": "07:19",
             "re_ouverture_a_la_circulation": "09:57",
+            "type_de_fermeture": "Totale",
+            "fermeture_totale": "oui"
+        },
+        {
+            "bateau": "AMADEA/ LE Fran\u00e7ais",
+            "date_passage": "2024-10-04",
+            "fermeture_a_la_circulation": "08:34",
+            "re_ouverture_a_la_circulation": "10:02",
             "type_de_fermeture": "Totale",
             "fermeture_totale": "oui"
         },
@@ -666,26 +682,10 @@
             "fermeture_totale": "oui"
         },
         {
-            "bateau": "IRIS",
-            "date_passage": "2024-09-26",
-            "fermeture_a_la_circulation": "12:04",
-            "re_ouverture_a_la_circulation": "13:27",
-            "type_de_fermeture": "Totale",
-            "fermeture_totale": "oui"
-        },
-        {
             "bateau": "CRYSTAL SYMPHONY",
             "date_passage": "2024-10-01",
             "fermeture_a_la_circulation": "06:34",
             "re_ouverture_a_la_circulation": "07:57",
-            "type_de_fermeture": "Totale",
-            "fermeture_totale": "oui"
-        },
-        {
-            "bateau": "AMADEA",
-            "date_passage": "2024-10-04",
-            "fermeture_a_la_circulation": "08:34",
-            "re_ouverture_a_la_circulation": "09:57",
             "type_de_fermeture": "Totale",
             "fermeture_totale": "oui"
         },
