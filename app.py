@@ -1,17 +1,14 @@
 from datetime import datetime
 from flask import Flask, Response, request
 from bridge_event import DayFilterType, filter_bridge_events
-from bridge_json_utils import load_bridge_events, download_bridge_json, save_bridge_json
+from bridge_json_utils import download_bridge_events
 from calendar_utils import CAL_MIME_TYPE, create_cal_from_events
 
+
 DAYS_LETTERS = ['L', 'Ma', 'Me', 'J', 'V', 'S', 'D']
+
 app = Flask(__name__) 
 
-
-@app.cli.command("download")
-def download():
-    json_data = download_bridge_json()
-    save_bridge_json(json_data)
 
 
 @app.route('/chaban.ics')
@@ -22,7 +19,7 @@ def calendar():
     day_filter = parse_day_filter(day_filter_str) if day_filter_str else None
     time_filter = parse_time_filter(time_filter_str) if time_filter_str else None
 
-    bridge_data = load_bridge_events()
+    bridge_data = download_bridge_events()
     bridge_data = filter_bridge_events(bridge_data, day_filter, time_filter)
     cal_text = create_cal_from_events(bridge_data)
 
